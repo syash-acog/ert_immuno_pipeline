@@ -1,0 +1,16 @@
+biopython
+pandas
+numpy
+scikit-learn
+openpyxl
+#later added
+requests
+matplotlib
+keras
+tensorflow
+keras
+freesasa
+epitopepredict
+torch
+tqdm
+ruamel.yaml
