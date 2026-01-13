@@ -25,7 +25,12 @@ ENV PYTHONPATH="${PYTHONPATH}:/app/tools/NetCleave:/app/tools/ImmuScope:/app/src
 
 # Copy source code
 COPY src /app/src
-COPY data /app/data
 
+# Create input/output directories
+RUN mkdir -p /app/data/input /app/data/output
 
-CMD ["python", "/app/src/main.py"]
+# Set entrypoint to the main script
+ENTRYPOINT ["python", "/app/src/main.py"]
+
+# Default arguments (can be overridden at runtime)
+CMD ["--help"]
