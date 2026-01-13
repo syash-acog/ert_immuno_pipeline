@@ -26,18 +26,20 @@ git clone https://github.com/your-org/ert_immuno_pipeline.git
 cd ert_immuno_pipeline
 
 # 2. Download ImmuScope model weights from Zenodo
-# The data and model weights are available at: https://doi.org/10.5281/zenodo.14184201
-# Download and extract to the tools/ImmuScope directory:
+# Download the data and model weights are available at: https://doi.org/10.5281/zenodo.14184201
+# Copy *tar.gz to the repo from local to server or wherever you are running the container
+# Extract to the tools/ImmuScope directory:
 
 tar -xvzf ImmuScope-data.tar.gz -C tools/ImmuScope/
 tar -xvzf ImmuScope-weights.tar.gz -C tools/ImmuScope/
 
+copy 
+
 # 3. Add your input files
 # Place your protein FASTA file in data/input/
-# (Optional) Place your PDB structure file in data/input/
+# Place your PDB structure file in data/input/
 cp /path/to/your/protein.fasta data/input/
-cp /path/to/your/structure.pdb data/input/  # Optional
-
+cp /path/to/your/structure.pdb data/input/
 # 4. Build the Docker image
 make build
 
