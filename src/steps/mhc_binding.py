@@ -98,6 +98,7 @@ class MHCBinding(PipelineStep):
                 idx_best = idx_best.set_index('name')
                 
                 data['mhc_binding_score'] = data.index.map(idx_best['binding_score'])
+                data['best_allele'] = data.index.map(idx_best['allele'])
                 if 'core' in idx_best.columns:
                     data['mhc_core'] = data.index.map(idx_best['core'])
                 if 'pos' in idx_best.columns:
@@ -109,6 +110,11 @@ class MHCBinding(PipelineStep):
                 best_results = best_results.set_index('peptide_seq')
                 
                 data['mhc_binding_score'] = data['peptide_seq'].map(best_results['binding_score'])
+                data['best_allele'] = data['peptide_seq'].map(best_results.index.to_series().map(lambda x: best_results.loc[x, 'allele'] if 'allele' in best_results.columns else None))
+                # simpler best_allele mapping
+                if 'allele' in best_results.columns:
+                    data['best_allele'] = data['peptide_seq'].map(best_results['allele'])
+                
                 if 'core' in best_results.columns:
                     data['mhc_core'] = data['peptide_seq'].map(best_results['core'])
                 if 'pos' in best_results.columns:

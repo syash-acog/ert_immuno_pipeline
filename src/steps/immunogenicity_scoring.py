@@ -97,9 +97,16 @@ class ImmunogenicityScoring(PipelineStep):
                 data['immunogenicity_score'] = None
                 return data
 
-            # Prepare peptides for scoring
+            # Prepare alleles and peptides
             peptides = data['peptide_seq'].tolist()
             
+            # Use dynamic alleles from input if available (best_allele from MHC binding step)
+            if 'best_allele' in data.columns:
+                dynamic_alleles = data['best_allele'].fillna(self.allele_original).tolist()
+                converted_alleles = [self._convert_allele_format(a) for a in dynamic_alleles]
+            else:
+                converted_alleles = [self.allele] * len(peptides)
+
             # Create temporary HDF5 file with peptide data
             with tempfile.NamedTemporaryFile(suffix='.h5', delete=False) as tmp_file:
                 tmp_h5_path = tmp_file.name
@@ -117,10 +124,18 @@ class ImmunogenicityScoring(PipelineStep):
                     peptide_pad=peptide_pad
                 )
                 
+                # Check for missing alleles in the database
+                mhc_names = []
+                for a in converted_alleles:
+                    if a in mhc_name_seq:
+                        mhc_names.append(a)
+                    else:
+                        logging.warning(f"Allele {a} not in database, falling back to {self.allele}")
+                        mhc_names.append(self.allele)
+
                 # Create HDF5 file
                 with h5py.File(tmp_h5_path, 'w') as h5:
                     dt = h5py.string_dtype(encoding='utf-8')
-                    mhc_names = [self.allele] * len(peptides)
                     peptide_contexts = [""] * len(peptides)  # No context available
                     labels = [0.0] * len(peptides)  # Dummy labels
                     
