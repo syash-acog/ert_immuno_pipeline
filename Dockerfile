@@ -21,7 +21,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY tools /app/tools
 
 # Add Tools and src to PYTHONPATH
-ENV PYTHONPATH="${PYTHONPATH}:/app/tools/NetCleave:/app/tools/ImmuScope:/app/src"
+ENV PYTHONPATH="/app/tools/NetCleave:/app/tools/ImmuScope:/app/src"
 
 # Copy source code
 COPY src /app/src
