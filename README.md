@@ -42,6 +42,10 @@ cp /path/to/your/structure.pdb data/input/  # Optional
 make build
 
 # 5. Run the pipeline
+# Option A: Run with your own data (Recommended)
+make run-custom FASTA=data/input/your_protein.fasta PDB=data/input/structure.pdb ALLELES="HLA-DRB1*03:01,HLA-DRB1*01:01"
+
+# Option B: Run with the full docker command
 docker run --rm \
   -v $(pwd)/data/input:/app/data/input \
   -v $(pwd)/data/output:/app/data/output \
