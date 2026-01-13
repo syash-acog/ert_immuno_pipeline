@@ -1,3 +1,8 @@
+# Default variables for custom runs
+FASTA ?= data/input/rav_pal.fasta
+PDB ?= 
+ALLELES ?= HLA-DRB1*03:01,HLA-DRB1*01:01
+
 help:
 	@echo "Immunogenicity Risk Pipeline - Docker Commands"
 	@echo ""
