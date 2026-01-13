@@ -173,7 +173,7 @@ ert_immuno_pipeline/
 
 ## 📚 References
 
-- **TEPITOPE**: Sturniolo et al., Nature Biotechnology, 1999
-- **NetCleave**: Mengual et al., Bioinformatics, 2020
+- **TEPITOPE**:  [Epitopepredict GitHub Repository](https://github.com/dmnfarrell/epitopepredict)
+- **NetCleave**: [NetCleave GitHub Repository](https://github.com/pepamengual/NetCleave)
 - **ImmuScope**: [ImmuScope GitHub Repository](https://github.com/RamuLab/ImmuScope)
-- **FreeSASA**: Mitternacht, F1000Research, 2016
+- **FreeSASA**: [FreeSASA GitHub Repository](https://github.com/mittinatten/freesasa)
