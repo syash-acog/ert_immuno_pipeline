@@ -76,6 +76,6 @@ class RegisterResolution(PipelineStep):
         data['mhc_anchor_residues'] = results.apply(lambda x: x['anchor_res'] if x else None)
         data['mhc_anchor_positions'] = results.apply(lambda x: x['anchor_pos'] if x else None)
 
-        self.save_results(data, "peptides_register_resolution.csv", **kwargs)
+        self.save_results(data, "register_resolution.csv", **kwargs)
 
         return data

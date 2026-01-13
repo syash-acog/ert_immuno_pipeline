@@ -120,7 +120,7 @@ class MHCBinding(PipelineStep):
                 if 'pos' in best_results.columns:
                     data['mhc_core_start'] = data['peptide_seq'].map(best_results['pos'])
             
-            self.save_results(data, "peptides_mhc_binding.csv", **kwargs)
+            self.save_results(data, "mhc_binding.csv", **kwargs)
 
             return data
 

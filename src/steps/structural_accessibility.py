@@ -140,7 +140,7 @@ class StructuralAccessibility(PipelineStep):
             print("Skipping SASA calculation (No PDB).")
             data['mean_accessibility'] = None
 
-        self.save_results(data, "peptides_structural_accessibility.csv", **kwargs)
+        self.save_results(data, "structural_accessibility.csv", **kwargs)
 
         return data
 

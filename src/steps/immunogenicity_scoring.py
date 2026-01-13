@@ -201,7 +201,7 @@ class ImmunogenicityScoring(PipelineStep):
                 logging.info(f"Immunogenicity scoring complete. Scores range: [{min(predictions):.3f}, {max(predictions):.3f}]")
                 
                 # Save intermediate result as requested 
-                self.save_results(data, "peptides_immunogenicity_score.csv", **kwargs)
+                self.save_results(data, "immunogenicity_score.csv", **kwargs)
                 
             finally:
                 # Clean up temp file

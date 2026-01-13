@@ -158,6 +158,6 @@ class CleavageLikelihood(PipelineStep):
             if os.path.exists(input_csv_path):
                 os.remove(input_csv_path)
 
-        self.save_results(data, "peptides_cleavage.csv", **kwargs)
+        self.save_results(data, "cleavage_likelihood.csv", **kwargs)
 
         return data

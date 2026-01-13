@@ -114,14 +114,14 @@ The pipeline generates the following files in the output directory:
 
 | File | Description |
 |------|-------------|
-| `rav-pal_enumeration.csv` | All enumerated 15-mer peptides with start positions |
-| `rav-pal_cleavage.csv` | Cleavage likelihood scores from NetCleave |
-| `rav-pal_structural_accessibility.csv` | Solvent accessible surface area (SASA) values |
-| `rav-pal_mhc_binding.csv` | MHC-II binding predictions for all alleles |
-| `rav-pal_register_resolution.csv` | Binding core, anchor positions, and TCR-facing residues |
-| `rav-pal_immunogenicity_score.csv` | ImmuScope immunogenicity predictions per peptide |
-| `rav-pal_residue_risk.csv` | Per-residue risk scores with contributing peptides |
-| `rav-pal_protein_risk.csv` | Final aggregated protein risk score |
+| `peptides_enumeration.csv` | All enumerated 15-mer peptides with start positions |
+| `cleavage_likelihood.csv` | Cleavage likelihood scores from NetCleave |
+| `structural_accessibility.csv` | Solvent accessible surface area (SASA) values |
+| `mhc_binding.csv` | MHC-II binding predictions for all alleles |
+| `register_resolution.csv` | Binding core, anchor positions, and TCR-facing residues |
+| `immunogenicity_score.csv` | ImmuScope immunogenicity predictions per peptide |
+| `residue_risk.csv` | Per-residue risk scores with contributing peptides |
+| `protein_risk.csv` | Final aggregated protein risk score |
 
 
 ## 🔬 Pipeline Steps
