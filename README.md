@@ -33,21 +33,16 @@ cd ert_immuno_pipeline
 tar -xvzf ImmuScope-data.tar.gz -C tools/ImmuScope/
 tar -xvzf ImmuScope-weights.tar.gz -C tools/ImmuScope/
 
-copy 
-
 # 3. Add your input files
 # Place your protein FASTA file in data/input/
 # Place your PDB structure file in data/input/
 cp /path/to/your/protein.fasta data/input/
 cp /path/to/your/structure.pdb data/input/
+
 # 4. Build the Docker image
 make build
 
-# 5. Run the pipeline
-# Option A: Run with your own data (Recommended)
-make run-custom FASTA=data/input/your_protein.fasta PDB=data/input/structure.pdb ALLELES="HLA-DRB1*03:01,HLA-DRB1*01:01"
-
-# Option B: Run with the full docker command
+# 4A: Run with the full docker command
 docker run --rm \
   -v $(pwd)/data/input:/app/data/input \
   -v $(pwd)/data/output:/app/data/output \
@@ -55,6 +50,11 @@ docker run --rm \
   --fasta /app/data/input/your_protein.fasta \
   --pdb /app/data/input/structure.pdb \
   --alleles "HLA-DRB1*03:01,HLA-DRB1*01:01"
+
+# OR Directly run below command only which builds as well (Recommended)
+
+# 5. Run the pipeline ()
+make run-custom FASTA=data/input/your_protein.fasta PDB=data/input/structure.pdb ALLELES="HLA-DRB1*03:01,HLA-DRB1*01:01"
 
 # 6. Check results in data/output/
 ```
