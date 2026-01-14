@@ -145,7 +145,7 @@ def main():
     
     # Print configuration
     print("=" * 60)
-    print("IMMUNOGENICITY RISK PIPELINE")
+    print("IMMUNOGENICITY PIPELINE")
     print("=" * 60)
     print(f"Input FASTA:     {input_fasta}")
     print(f"Input PDB:       {input_pdb if input_pdb else 'Not provided'}")
